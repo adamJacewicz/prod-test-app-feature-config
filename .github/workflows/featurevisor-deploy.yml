@@ -26,13 +26,16 @@ jobs:
           aws-region: eu-central-1
 
       - name: Lint
-        run: npx featurevisor lint
+        run: npm run lint
 
       - name: Test specs
-        run: npx featurevisor test
+        run: npm run test
 
       - name: Build
-        run: npx featurevisor export
+        run: npm run build
+
+      - name: Export
+        run: npm run export
 
       - name: Deploy to AWS
         run: aws s3 sync out s3://prod-test-app-features-bucket
